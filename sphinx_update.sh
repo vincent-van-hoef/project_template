@@ -14,4 +14,4 @@ cp docs/templates/results.rst docs/content/results.rst
 cp docs/templates/index.rst docs/index.rst
 
 cp docs/templates/NBIS-logo.png docs/_static/NBIS-logo.png
-cp docs/templates/scilifelab_logo.png docs/_static/scilifelab_logo.jpg
+cp docs/templates/scilifelab_logo.jpg docs/_static/scilifelab_logo.jpg
