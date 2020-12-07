@@ -21,4 +21,5 @@ cp docs/templates/NBIS-logo.png docs/_static/NBIS-logo.png
 cp docs/templates/scilife_logo.jpg docs/_static/scilife_logo.jpg
 
 git add .
+git commit -m "First Commit"
 git push
