@@ -5,7 +5,7 @@ echo "master_doc = 'index'" >> docs/conf.py
 echo "numfig = True" >> docs/conf.py
 
 sed -i '' 's/alabaster/sphinx_rtd_theme/g' docs/conf.py
-sed -i '' "s/'.DS_Store', /'.DS_Store', 'templates'/g" docs/conf.py
+sed -i '' "s/'.DS_Store'/'.DS_Store', 'templates'/g" docs/conf.py
 
 mkdir docs/content
 
