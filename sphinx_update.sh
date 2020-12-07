@@ -3,6 +3,8 @@
 echo "master_doc = 'index'" >> docs/conf.py
 echo "numfig = True" >> docs/conf.py
 
+mkdir content
+
 cp docs/templates/acknowledgements.rst docs/content/acknowledgements.rst
 cp docs/templates/closing.rst docs/content/closing.rst
 cp docs/templates/data_responsibility.rst docs/content/data_responsibility.rst
