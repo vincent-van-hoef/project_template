@@ -7,4 +7,3 @@ A skeleton template for analysis projects. To make full use of the reporting cap
 - To activate the GitHub pages Sphinx static site, go to the Settings of the online project repo and activate GitHub pages from the Branch "gh-pages": every push to "main" will redeploy the Pages website
 - Make html report locally by running "make html" in the docs/ folder of the local project repo for quick updates and checks. 
 - Figures and Tables that are outputted from the scripts in the Scripts folder should be saved in the results folder; first intermediate and then in the final results section. If you want to publish them in the html report, save them in the docs/_static folder. References from the .rst files will refer to this folder.
-
