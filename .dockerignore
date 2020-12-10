@@ -1,0 +1,8 @@
+data/
+report/
+documentation/
+results/
+.git/
+scripts/
+.DS_Store
+.gitignore
