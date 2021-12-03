@@ -16,13 +16,13 @@ nextflow.enable.dsl = 2
 ========================================================================================
 */
 
-input = Channel.fromPath( './data/raw/*.csv' )
+input_ch = Channel.fromPath( params.input )
 
 process lines {
     container 'bash:alpine3.14'
 
     input:
-    file calcium from input
+    file calcium from input_ch
 
     output:
     file 'no_lines.txt'
