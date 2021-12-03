@@ -8,17 +8,13 @@
 ----------------------------------------------------------------------------------------
 */
 
-nextflow.enable.dsl = 2
-
 /*
-========================================================================================
-    PREPROCESS DATA
-========================================================================================
-*/
+ *    PREPROCESS DATA
+ */
 
 input_ch = Channel.fromPath( params.input )
 
-process lines {
+process checkLength {
     container 'bash:alpine3.14'
 
     input:
@@ -27,6 +23,7 @@ process lines {
     output:
     file 'no_lines.txt'
 
+    script:
     """
     wc -l $calcium > no_lines.txt
     """        
