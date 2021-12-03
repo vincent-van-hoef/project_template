@@ -15,7 +15,7 @@
 input_ch = Channel.fromPath( params.input )
 
 process checkLength {
-    container 'bash:alpine3.14'
+    container 'ubuntu:22.04'
 
     input:
     file calcium from input_ch
