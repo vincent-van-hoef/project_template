@@ -59,7 +59,6 @@ process createFigs {
 
 }
 
-// Find a way to move the results to the workdir in a similar structure so that upon moving the html results the firures are still found
 process publishReport {
     container 'rocker/verse:4.1'
     publishDir "./", mode: 'copy', overwrite: true
