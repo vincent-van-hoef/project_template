@@ -1,4 +1,4 @@
-output_dir: "."
+output_dir: "report"
 delete_merged_file: true
 rmd_files:
 - index.Rmd

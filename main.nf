@@ -16,6 +16,7 @@ nextflow.enable.dsl=2
 
  reportSrc = channel.fromPath( params.pubScripts ).collect()
  reportAssets = channel.fromPath( params.pubAssets ).collect()
+ reportResults = channel.fromPath( params.pubResults )
 
 /*
  *    PREPROCESS DATA
@@ -41,7 +42,7 @@ nextflow.enable.dsl=2
 process createFigs {
     container 'rocker/verse:4.1'
     publishDir "./results/plots", mode: 'copy'
-    #publishDir "./src/results/plots", mode: 'symlink'
+    publishDir "./src/results/plots", mode: 'symlink'
 
     input:
     path calcium
@@ -49,7 +50,7 @@ process createFigs {
     path rfun
 
     output:
-    path 'scatter.pdf'
+    path 'scatter.pdf', emit: analysis_results
 
     script:
     """
@@ -61,27 +62,29 @@ process createFigs {
 // Find a way to move the results to the workdir in a similar structure so that upon moving the html results the firures are still found
 process publishReport {
     container 'rocker/verse:4.1'
-    publishDir "./report/", mode: 'copy'
+    publishDir "./", mode: 'copy', overwrite: true
 
     input:
-    path '*'
+    path analysis_results
+    path reportResults
     path reportSrc
     path reportAssets
 
     output:
-    path '*.html'
-    path 'style.css'
-    path 'search_index.json'
-    path 'libs/**'
+    path 'report/'
 
     script:
     """
+    mkdir src
+    mv *.Rmd *.yml style.css src/
+    cd src/
     Rscript -e 'bookdown::render_book("index.Rmd")'
+    mv report ../report
     """
 }
 
 workflow {
    checkLength(data)
    createFigs(data, rtar, rfun)
-   publishReport(createFigs.out, reportSrc, reportAssets)
+   publishReport(createFigs.out, reportSrc, reportAssets, reportResults)
 }

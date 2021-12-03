@@ -14,9 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r}
-knitr::include_graphics("../results/plots/scatter.pdf")
-```
 
 # Introduction
 
