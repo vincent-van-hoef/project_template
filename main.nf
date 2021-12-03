@@ -10,14 +10,19 @@ nextflow.enable.dsl=2
 ----------------------------------------------------------------------------------------
 */
 
+ data = Channel.fromPath( params.input )
+ rtar = Channel.fromPath( params.Rtar )
+ rfun = channel.fromPath( params.Rfun )
+
+
 /*
  *    PREPROCESS DATA
  */
 
-input_ch = Channel.fromPath( params.input )
-
-process checkLength {
+ 
+ process checkLength {
     container 'ubuntu:22.04'
+    publishDir "./results/length", mode: 'copy'
 
     input:
     path calcium
@@ -31,7 +36,26 @@ process checkLength {
     """        
 }
 
+process createFigs {
+    container 'rocker/verse:4.1'
+    publishDir "./results/plots", mode: 'copy'
+
+    input:
+    path calcium
+    path rtar
+    path rfun
+
+    output:
+    path 'scatter.pdf'
+
+    script:
+    """
+    Rscript -e 'install.packages("targets"); library("targets");tar_make()'
+    """
+
+}
+
 workflow {
-   data = Channel.fromPath( params.input ) 
    checkLength(data)
+   createFigs(data, rtar, rfun)
 }
