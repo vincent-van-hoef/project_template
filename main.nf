@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
 
+nextflow.enable.dsl=2
+
 /*
 ========================================================================================
     Template Example
@@ -18,13 +20,18 @@ process checkLength {
     container 'ubuntu:22.04'
 
     input:
-    file calcium from input_ch
+    path calcium
 
     output:
-    file 'no_lines.txt'
+    path 'no_lines.txt'
 
     script:
     """
     wc -l $calcium > no_lines.txt
     """        
+}
+
+workflow {
+   data = Channel.fromPath( params.input ) 
+   checkLength(data)
 }
