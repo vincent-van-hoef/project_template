@@ -41,7 +41,7 @@ nextflow.enable.dsl=2
 process createFigs {
     container 'rocker/verse:4.1'
     publishDir "./results/plots", mode: 'copy'
-    publishDir "./report/results/plots", mode: 'symlink'
+    #publishDir "./src/results/plots", mode: 'symlink'
 
     input:
     path calcium
@@ -58,6 +58,7 @@ process createFigs {
 
 }
 
+// Find a way to move the results to the workdir in a similar structure so that upon moving the html results the firures are still found
 process publishReport {
     container 'rocker/verse:4.1'
     publishDir "./report/", mode: 'copy'
