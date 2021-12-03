@@ -12,13 +12,10 @@ knitr::opts_chunk$set(
   echo=FALSE,
   comment = "#>"
 )
-library("knitr")
-library("dplyr")
-library("DT")
-library("bsselectR")
+```
 
-xaringanExtra::use_panelset()
-xaringanExtra::style_panelset_tabs(font_family = "inherit")
+```{r}
+#knitr::include_graphics("../results/plots/scatter.pdf")
 ```
 
 # Introduction

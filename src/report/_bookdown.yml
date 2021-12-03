@@ -1,13 +1,7 @@
-output_dir: Report
+output_dir: "."
 delete_merged_file: true
 rmd_files:
 - index.Rmd
-- quality.Rmd
-- de.Rmd 
-- correlation.Rmd
-- cortisone.Rmd
-- organs.Rmd
-- methods.Rmd
 - data_responsibility.Rmd
 - acknowledgements.Rmd
 - closing.Rmd
