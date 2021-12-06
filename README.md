@@ -24,11 +24,12 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
     - __db__: Location of extra data and metadata
 * __libs__: extra libraries (optional)
 * __modules__" Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
-* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report. Add .Rmd files as necessary.
+* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report. Add .Rmd files as necessary. After running the publishReport module, an additonal `report` folder will be created containing the html files. This folder should be delivered to the User together with the `results` folder and be kept on the same relative level to ensure the figures in the report can be found. 
 * __results__: Output folder for all results. These results should be structured using the publishDir commands in main.nf
 * __scr__: Most of the time the main downstream analysis will be done in R. This folder contains the `_targets.R` and `myFunctions.R` scripts necessary to run a "workflow-based" R analysis. More info on {{targets}} can be found [here](https://books.ropensci.org/targets/).
 * __docs__: Miscellaneous documentation
 
-The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
 
-After running the publishReport module, an additonal `report` folder will be created containing the html files. This folder should be delivered to the User together with the `results` folder and be kept on the same relative level to ensure the figures in the report can be found.
+* Notes
+
+The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
