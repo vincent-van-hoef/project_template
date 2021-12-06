@@ -30,7 +30,7 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
 
 * __modules__: Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
 
-* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report. Add .Rmd files as necessary. After running the publishReport module, an additonal `report` folder will be created containing the html files. This folder should be delivered to the User together with the `results` folder and be kept on the same relative level to ensure the figures in the report can be found. 
+* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report. Add .Rmd files as necessary. After running the publishReport module, an additional `report` folder will be created containing the html files. This folder should be delivered to the User together with the `results` folder and be kept on the same relative level to ensure the figures in the report can be found. 
 
 * __results__: Output folder for all results. These results should be structured using the publishDir commands in main.nf
 

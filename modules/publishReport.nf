@@ -4,12 +4,12 @@ process publishReport {
     publishDir "./", mode: 'copy', overwrite: true
 
     input:
-    val(done_ch)
-    path(results)
-    path(reportdir)
+    val done_ch
+    path results
+    path reportdir
 
     output:
-    path('./report')
+    path './report'
 
     script:
     """
