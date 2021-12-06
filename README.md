@@ -19,8 +19,9 @@ nextflow run main.nf
 example is provided in the template repo.
 * __nextflow.config__: Configuration file for the Nextflow run
 * __project.config__: Project specific configuration; will be loaded after the nextflow.config.
-* __data/raw__: Location of the raw data (data, script or symlink)
-* __data/db__: Location of extra data and metadata
+* __data__: 
+- __data/raw__: Location of the raw data (data, script or symlink)
+- __data/db__: Location of extra data and metadata
 * __libs__: extra libraries (optional)
 * __modules__" Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
 * __publishing__:
