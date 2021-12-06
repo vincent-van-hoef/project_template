@@ -12,9 +12,9 @@ nextflow.enable.dsl=2
 
  data = Channel.fromPath( params.input )
  rtar = Channel.fromPath( params.Rtar )
- rfun = channel.fromPath( params.Rfun )
- results = channel.fromPath( params.outdir )
- reportdir = channel.fromPath( params.reportdir )
+ rfun = Channel.fromPath( params.Rfun )
+ results = Channel.fromPath( params.outdir )
+ reportdir = Channel.fromPath( params.reportdir )
 
 include { publishReport } from './modules/publishReport.nf'
 
