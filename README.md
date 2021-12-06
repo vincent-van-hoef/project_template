@@ -13,3 +13,7 @@ nextflow run main.nf
 ```
 
 
+# Folder and File Description
+
+* __main.nf__: Main Nextflow script; orchestrates the whole analysis. A minimal example is provided in the template repo.
+* __data/raw__: Location to deposit the raw data 
