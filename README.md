@@ -1,10 +1,12 @@
 # Aim
 
-This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. The hard-coded support for containeried software also secures the reproducibility of the analysis.
+This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. The hard-coded support for containerized software also secures the reproducibility of the analysis.
 
 # Usage
 
-Running a completed analysis is straightforward:
+Click the "Use this template" button to start a new repo based on this example. Put raw data in the `data\raw` folder and modify the scripts as necessary (description of the different scripts below).
+
+Running a completed or ongoing analysis is straightforward:
 
 ```
 nextflow run main.nf
