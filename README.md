@@ -31,4 +31,4 @@ example is provided in the template repo.
 
 The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
 
-After running the publishReport module, an additonal `__report__` folder will be created containing the html files. This folder should be delivered together with the `__results__` folder and be kept on the same relative level to ensure the figures in the report can be found.
+After running the publishReport module, an additonal `report` folder will be created containing the html files. This folder should be delivered to the User together with the `results` folder and be kept on the same relative level to ensure the figures in the report can be found.
