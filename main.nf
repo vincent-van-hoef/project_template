@@ -14,10 +14,6 @@ nextflow.enable.dsl=2
  rtar = Channel.fromPath( params.Rtar )
  rfun = channel.fromPath( params.Rfun )
 
- reportSrc = channel.fromPath( params.pubScripts ).collect()
- reportAssets = channel.fromPath( params.pubAssets ).collect()
- reportResults = channel.fromPath( params.pubResults )
-
 /*
  *    PREPROCESS DATA
  */
@@ -51,6 +47,7 @@ process createFigs {
 
     output:
     path 'scatter.pdf', emit: analysis_results
+    val true, emit: done_ch
 
     script:
     """
@@ -64,7 +61,7 @@ process publishReport {
     publishDir "./", mode: 'copy', overwrite: true
 
     input:
-    path analysis_results
+    val done_ch
     path reportResults
     path reportSrc
     path reportAssets
