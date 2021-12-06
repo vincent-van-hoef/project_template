@@ -15,5 +15,14 @@ nextflow run main.nf
 
 # Folder and File Description
 
-* __main.nf__: Main Nextflow script; orchestrates the whole analysis. A minimal example is provided in the template repo.
-* __data/raw__: Location to deposit the raw data 
+* __main.nf__: Main Nextflow script; orchestrates the whole analysis. A minimal 
+example is provided in the template repo.
+* __nextflow.config__: Configuration file for the Nextflow run
+* __project.config__: Project specific configuration; will be loaded after the nextflow.config.
+* __data/raw__: Location of the raw data (data, script or symlink)
+* __data/db__: Location of extra data and metadata
+* __libs__: extra libraries (optional)
+* __modules__" Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
+* __publishing__:
+* __results__:
+* __scr__:
