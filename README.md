@@ -26,7 +26,7 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
     - __raw__: Location of the raw data (data, script or symlink)
     - __db__: Location of extra data and metadata
 
-* __libs__: extra libraries (optional)
+* __libs__: extra libraries (optional) - perhaps additonal Dockerfiles?
 
 * __modules__: Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
 
