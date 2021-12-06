@@ -5,19 +5,18 @@ nextflow.enable.dsl=2
 /*
 ========================================================================================
     Template Example
-========================================================================================
     Github : https://github.com/vincent-van-hoef/project_template
-----------------------------------------------------------------------------------------
+========================================================================================
 */
 
 // Input raw data
  data = Channel.fromPath( params.input )
 
  // Specify directories
- rtar = Channel.fromPath( params.rtar )
- rfun = Channel.fromPath( params.rfun )
- results = Channel.fromPath( params.outdir )
- reportdir = Channel.fromPath( params.reportdir )
+ rtar       = Channel.fromPath( params.rtar )
+ rfun       = Channel.fromPath( params.rfun )
+ results    = Channel.fromPath( params.outdir )
+ reportdir  = Channel.fromPath( params.reportdir )
 
 // Include the publishing module.
 include { publishReport } from './modules/publishReport.nf'
