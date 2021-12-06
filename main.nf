@@ -10,12 +10,16 @@ nextflow.enable.dsl=2
 ----------------------------------------------------------------------------------------
 */
 
+// Input raw data
  data = Channel.fromPath( params.input )
+
+ // Specify directories
  rtar = Channel.fromPath( params.Rtar )
  rfun = Channel.fromPath( params.Rfun )
  results = Channel.fromPath( params.outdir )
  reportdir = Channel.fromPath( params.reportdir )
 
+// Include the publishing module.
 include { publishReport } from './modules/publishReport.nf'
 
 /*
