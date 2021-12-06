@@ -20,10 +20,15 @@ example is provided in the template repo.
 * __nextflow.config__: Configuration file for the Nextflow run
 * __project.config__: Project specific configuration; will be loaded after the nextflow.config.
 * __data__: 
-    - __data/raw__: Location of the raw data (data, script or symlink)
-    - __data/db__: Location of extra data and metadata
+    - __raw__: Location of the raw data (data, script or symlink)
+    - __db__: Location of extra data and metadata
 * __libs__: extra libraries (optional)
 * __modules__" Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
-* __publishing__:
-* __results__:
-* __scr__:
+* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report.
+* __results__: Output folder for all results. These results should be structured using the publishDir commands in main.nf
+* __scr__: Most of the time the main downstream analysis will be done in R. This folder contains the `_targets.R` and `myFunctions.R` scripts necessary to run a "workflow-based" R analysis. More info on {{targets}} can be found [here](https://books.ropensci.org/targets/).
+* __docs__: Miscellaneous documentation
+
+The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
+
+After running the publishReport module, an additonal `__report__` folder will be created containing the html files. This folder should be delivered together with the `__results__` folder and be kept on the same relative level to ensure the figures in the report can be found.
