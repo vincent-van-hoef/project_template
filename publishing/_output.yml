@@ -6,4 +6,4 @@ bookdown::gitbook:
       toc:
         collapse: section
         before: |
-          <li class="toc-logo"><a href="./"><img src="image/NBIS-logo.png"></a></li>
+          <li class="toc-logo"><a href="./"><img src="assets/NBIS-logo.png"></a></li>

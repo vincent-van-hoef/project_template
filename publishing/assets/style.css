@@ -33,19 +33,19 @@ div.puzzle, div.fyi, div.demo, div.note {
 }
 
 div.puzzle {
-  background-image: url("../image/Your-turn.png");
+  background-image: url("Your-turn.png");
 }
 
 div.fyi {
-  background-image: url("../image/fyi.png");
+  background-image: url("fyi.png");
 }
 
 div.demo {
-  background-image: url("../image/Live-code.png");
+  background-image: url("Live-code.png");
 }
 
 div.note {
-  background-image: url("../image/Lightbulb2.png");
+  background-image: url("Lightbulb2.png");
 }
 
 .book .book-body .page-wrapper .page-inner {

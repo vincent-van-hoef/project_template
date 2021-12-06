@@ -2,7 +2,7 @@
 title: Identification of clinical biomarkers for ANCA-associated vasculitis (#5204)
 documentclass: book
 link-citations: yes
-favicon: image/favicon.ico
+favicon: assets/favicon.ico
 description: Report summarizing the results for project #5204
 ---
 
