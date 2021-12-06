@@ -14,8 +14,8 @@ nextflow.enable.dsl=2
  data = Channel.fromPath( params.input )
 
  // Specify directories
- rtar = Channel.fromPath( params.Rtar )
- rfun = Channel.fromPath( params.Rfun )
+ rtar = Channel.fromPath( params.rtar )
+ rfun = Channel.fromPath( params.rfun )
  results = Channel.fromPath( params.outdir )
  reportdir = Channel.fromPath( params.reportdir )
 
@@ -29,7 +29,7 @@ include { publishReport } from './modules/publishReport.nf'
  
  process checkLength {
     container 'ubuntu:22.04'
-    publishDir "./results/length", mode: 'copy'
+    publishDir "${params.outdir}/length", mode: 'copy'
 
     input:
     path calcium
@@ -45,7 +45,7 @@ include { publishReport } from './modules/publishReport.nf'
 
 process createFigs {
     container 'rocker/verse:4.1'
-    publishDir "./results/plots", mode: 'copy'
+    publishDir "${params.outdir}/plots", mode: 'copy'
 
     input:
     path calcium
