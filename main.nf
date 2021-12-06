@@ -13,6 +13,10 @@ nextflow.enable.dsl=2
  data = Channel.fromPath( params.input )
  rtar = Channel.fromPath( params.Rtar )
  rfun = channel.fromPath( params.Rfun )
+ results = channel.fromPath( params.outdir )
+ reportdir = channel.fromPath( params.reportdir )
+
+include { publishReport } from './modules/publishReport.nf'
 
 /*
  *    PREPROCESS DATA
@@ -38,7 +42,6 @@ nextflow.enable.dsl=2
 process createFigs {
     container 'rocker/verse:4.1'
     publishDir "./results/plots", mode: 'copy'
-    publishDir "./src/results/plots", mode: 'symlink'
 
     input:
     path calcium
@@ -46,7 +49,7 @@ process createFigs {
     path rfun
 
     output:
-    path 'scatter.pdf', emit: analysis_results
+    path 'scatter.pdf'
     val true, emit: done_ch
 
     script:
@@ -56,31 +59,8 @@ process createFigs {
 
 }
 
-process publishReport {
-    container 'rocker/verse:4.1'
-    publishDir "./", mode: 'copy', overwrite: true
-
-    input:
-    val done_ch
-    path reportResults
-    path reportSrc
-    path reportAssets
-
-    output:
-    path 'report/'
-
-    script:
-    """
-    mkdir src
-    mv *.Rmd *.yml style.css src/
-    cd src/
-    Rscript -e 'bookdown::render_book("index.Rmd")'
-    mv report ../report
-    """
-}
-
 workflow {
    checkLength(data)
    createFigs(data, rtar, rfun)
-   publishReport(createFigs.out, reportSrc, reportAssets, reportResults)
+   publishReport(createFigs.out.done_ch, results, reportdir)
 }
