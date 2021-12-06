@@ -12,11 +12,11 @@ Running a completed or ongoing analysis is straightforward:
 nextflow run main.nf
 ```
 
+A minimal dataset and analysis is provided in the template repo. Adapt and add as necessary.
 
 # Folder and File Description
 
-* __main.nf__: Main Nextflow script; orchestrates the whole analysis. A minimal 
-example is provided in the template repo.
+* __main.nf__: Main Nextflow script; orchestrates the whole analysis. More info on the usage and setup of Nextflow can be found in the [official documentation](https://www.nextflow.io/docs/latest/index.html).
 * __nextflow.config__: Configuration file for the Nextflow run
 * __project.config__: Project specific configuration; will be loaded after the nextflow.config.
 * __data__: 
@@ -24,7 +24,7 @@ example is provided in the template repo.
     - __db__: Location of extra data and metadata
 * __libs__: extra libraries (optional)
 * __modules__" Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
-* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report.
+* __publishing__: Rmd files and .yml files describing and configuring the Bookdown report. Add .Rmd files as necessary.
 * __results__: Output folder for all results. These results should be structured using the publishDir commands in main.nf
 * __scr__: Most of the time the main downstream analysis will be done in R. This folder contains the `_targets.R` and `myFunctions.R` scripts necessary to run a "workflow-based" R analysis. More info on {{targets}} can be found [here](https://books.ropensci.org/targets/).
 * __docs__: Miscellaneous documentation
