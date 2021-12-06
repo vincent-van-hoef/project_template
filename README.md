@@ -41,4 +41,4 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
 
 # Notes
 
-The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
+* The last analysis process before the reporting step should contain `val true, emit: done_ch` in the output section. This will ensure that the reporting process will run **after** this step to keep the reporting up-to-date.
