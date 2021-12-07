@@ -1,6 +1,6 @@
 # Aim
 
-This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. It is set up to run R analyses using the R package `targets` and a provides the .Rmd and config files for Bookdown report of the results. Support for containerized software is hard-coded through Nextflow which secures the reproducibility of the analysis.
+This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. It is set up to run R analyses using the R package `targets` and a provides the .Rmd and config files for a Bookdown report of the results. Support for containerized software is hard-coded through Nextflow which secures the reproducibility of the analysis.
 
 # Usage
 
@@ -28,7 +28,7 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
     - __raw__: Location of the raw data (data, script or symlink)
     - __db__: Location of extra data and metadata
 
-* __libs__: extra libraries (optional) - perhaps additonal Dockerfiles?
+* __containers__: Custom containers (optional, try publicly available ones first). Each container gets its own folder, with its own Dockerfile or Singularity recipe.
 
 * __modules__: Directory containing Nextflow DSL2 modules. For now, only contains a modules to run a bookdown report.
 
