@@ -2,6 +2,8 @@
 
 This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. It is set up to run R analyses using the R package `targets` and a provides the .Rmd and config files for a Bookdown report of the results. Support for containerized software is hard-coded through Nextflow which secures the reproducibility of the analysis.
 
+This is still a work in progress and will be continuously updated. Also, this setup works for me but is far from best practice.
+
 # Usage
 
 Click the "Use this template" button to start a new repo based on this example. Clone the new repo to your local computer or Rackham. For Bianca projects, download the whole repo and upload to the server. 
