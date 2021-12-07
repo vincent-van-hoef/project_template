@@ -1,10 +1,12 @@
 # Aim
 
-This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. The hard-coded support for containerized software also secures the reproducibility of the analysis.
+This repo contains a structured set of files that - in theory - should fit most support projects from start to finish; i.e. from raw data processing over analysis to final report. The main workflow is driven by Nextflow and thus allows for the combination of different tools and methods. It is set up to run R analyses using the R package `targets` and a provides the .Rmd and config files for Bookdown report of the results. Support for containerized software is hard-coded through Nextflow which secures the reproducibility of the analysis.
 
 # Usage
 
-Click the "Use this template" button to start a new repo based on this example. Put raw data in the `data\raw` folder and modify the scripts as necessary (description of the different scripts below).
+Click the "Use this template" button to start a new repo based on this example. Clone the new repo to your local computer or Rackham. For Bianca projects, download the whole repo and upload to the server. 
+
+Put raw data in the `data\raw` folder and modify the scripts as necessary (description of the different scripts below).
 
 Running a completed or ongoing analysis is straightforward:
 
@@ -36,7 +38,7 @@ A minimal dataset and analysis is provided in the template repo. Adapt and add a
 
 * __scr__: Most of the time the main downstream analysis will be done in R. This folder contains the `_targets.R` and `myFunctions.R` scripts necessary to run a "workflow-based" R analysis. More info on {{targets}} can be found [here](https://books.ropensci.org/targets/).
 
-* __docs__: Miscellaneous documentation
+* __docs__: Miscellaneous documentation regarding the project.
 
 
 # Notes
