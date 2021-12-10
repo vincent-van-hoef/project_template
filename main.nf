@@ -15,6 +15,7 @@ nextflow.enable.dsl=2
  // Specify directories
  rtar       = Channel.fromPath( params.rtar )
  rfun       = Channel.fromPath( params.rfun )
+ dash       = Channel.fromPath( params.dashboard )
  results    = Channel.fromPath( params.outdir )
  reportdir  = Channel.fromPath( params.reportdir )
 
@@ -43,13 +44,14 @@ include { publishReport } from './modules/publishReport.nf'
 }
 
 process createFigs {
-    container 'rocker/verse:4.1'
+    container 'vvanhoef/interactive_r:v1'
     publishDir "${params.outdir}/plots", mode: 'copy'
 
     input:
     path calcium
     path rtar
     path rfun
+    path dash
 
     output:
     path 'scatter.pdf'
@@ -57,13 +59,13 @@ process createFigs {
 
     script:
     """
-    Rscript -e 'install.packages("targets"); library("targets");tar_make()'
+    Rscript -e 'install.packages(c("targets", "tarchetypes")); targets::tar_make()'
     """
 
 }
 
 workflow {
    checkLength(data)
-   createFigs(data, rtar, rfun)
+   createFigs(data, rtar, rfun, dash)
    publishReport(createFigs.out.done_ch, results, reportdir)
 }

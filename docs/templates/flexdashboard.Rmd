@@ -1,0 +1,32 @@
+---
+title: "Multiple Columns"
+output: flexdashboard::flex_dashboard
+---
+
+```{r global, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+tar_load(raw_data)
+raw_data_shared <- SharedData$new(raw_data)
+```
+
+    
+### Chart 1
+    
+```{r}
+raw_data_shared %>% 
+    plot_ly(x = ~time, y = ~cal) %>% 
+    highlight(opacityDim = 1) %>% 
+    config(
+        toImageButtonOptions = list(
+          format = "svg"
+        )
+    )
+
+```
+
+
+### Chart 2
+    
+```{r}
+datatable(raw_data_shared)
+```

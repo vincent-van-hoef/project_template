@@ -1,5 +1,5 @@
 process publishReport {
-    container 'rocker/verse:4.1'
+    container 'vvanhoef/interactive_r:v1'
     afterScript 'mv ./publishing/report ./report/'
     publishDir "./", mode: 'copy', overwrite: true
 

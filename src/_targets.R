@@ -1,7 +1,19 @@
 # _targets.R file
-source("myFunctions.R")
-install.packages("targets")
 library("targets")
+library("tarchetypes")
+
+source("myFunctions.R")
+
+tar_option_set(
+  packages = c(
+    "dplyr",
+    "rpivotTable",
+    "plotly",
+    "crosstalk",
+    "DT",
+    "flexdashboard"
+  )
+)
 
 list(
     tar_target(
@@ -17,5 +29,10 @@ list(
         scatter,
         create_scatter(raw_data),
         format = "file"
+    ),
+    tar_render(
+        dashboard,
+        "flexdashboard.Rmd",
+        output_file = "../../results/dashboard.html"
     )
 )
