@@ -1,0 +1,36 @@
+## Call with  ```{r, child = "../modules/vue_dropdown.Rmd"}``` from main .Rmd
+
+
+#```{r, results='asis', echo=FALSE, message=FALSE, warning = FALSE}
+#plots <- data.frame(locs = list.files("./Project_1639128194_GSEA", full.names = TRUE))
+#plots$name <-list.files("./Project_1639128194_GSEA", full.names = FALSE)
+#plts <- jsonlite::toJSON(plots, dataframe = "rows", pretty=TRUE)
+#cat("<script> var plotlist=", plts, "</script>")
+#```
+
+```{=html}
+<!-- include VueJS first -->
+<script src="https://unpkg.com/vue@latest"></script>
+<!-- use the latest vue-select release -->
+<script src="https://unpkg.com/vue-select@latest"></script>
+<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
+
+<div id="app">
+  <h1>Select a gene</h1>
+   <div class="col-lg-6">
+  <v-select label="name" :options="options" :reduce="option => option.locs" v-model="selected" placeholder="Select a gene"></v-select>
+  </div>
+<img :src="selected"></img>
+</div>
+```
+
+```{js, results='asis', echo=FALSE, message=FALSE}
+Vue.component('v-select', VueSelect.VueSelect)
+new Vue({
+  el: '#app',
+  data: {
+    selected: '',
+    options: plotlist
+  }
+})
+```
