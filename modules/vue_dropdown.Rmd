@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css">
 
 <div id="app">
-  <h1>Select a gene</h1>
    <div class="col-lg-6">
   <v-select label="name" :options="options" :reduce="option => option.locs" v-model="selected" placeholder="Select a gene"></v-select>
   </div>
