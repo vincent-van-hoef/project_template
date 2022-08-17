@@ -28,22 +28,22 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install staticrypt
-      run: sudo npm install -g staticrypt
+        run: sudo npm install -g staticrypt
       - name: Encrypt index
-      run: staticrypt main.html admin -o index.html
+        run: staticrypt index.html admin -o index.html
       - name: Commit files
-      run: |
-        git config --local user.name "Github Action"
-        git add .
-        git commit -m "encrypted files"
+        run: |
+          git config --local user.name "Github Action"
+          git add .
+          git commit -m "encrypted files"
       - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: main
-        force: true
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+          force: true
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
