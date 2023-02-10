@@ -1,0 +1,103 @@
+---
+title: "Gene expression analysis of blood immune cells in ANCA-associated vasculitis"
+subtitle: "Project #6412"
+author: "Vincent van Hoef"
+date: today
+title-block-banner: true
+reference-location: margin
+citation-location: margin
+bibliography: ./assets/citations.bib
+csl: ./assets/mla.cls
+format:
+    html:
+        theme: cosmo
+        toc: true
+        toc-location: left
+        css: "./assets/style.css"
+        self-contained: false
+        include-before-body: ./assets/custom.html
+execute: 
+  echo: false
+  warning: false
+comments: 
+    hypothesis: true
+---
+
+```{r}
+library(DT)
+library(dplyr)
+```
+
+```{ojs}
+serialize = {
+  const xmlns = "http://www.w3.org/2000/xmlns/";
+  const xlinkns = "http://www.w3.org/1999/xlink";
+  const svgns = "http://www.w3.org/2000/svg";
+  return function serialize(svg) {
+    svg = svg.cloneNode(true);
+    const fragment = window.location.href + "#";
+    const walker = document.createTreeWalker(svg, NodeFilter.SHOW_ELEMENT);
+    while (walker.nextNode()) {
+      for (const attr of walker.currentNode.attributes) {
+        if (attr.value.includes(fragment)) {
+          attr.value = attr.value.replace(fragment, "#");
+        }
+      }
+    }
+    svg.setAttributeNS(xmlns, "xmlns", svgns);
+    svg.setAttributeNS(xmlns, "xmlns:xlink", xlinkns);
+    const serializer = new window.XMLSerializer;
+    const string = serializer.serializeToString(svg);
+    return new Blob([string], {type: "image/svg+xml"});
+  };
+}
+```
+
+```{ojs}
+import { serialize as serializecsv } from "@palewire/saving-csv"
+```
+
+::: {.callout-note collapse="true"}
+# Click here to see the version and updates of this report
+
+Here you can see the status of the report. This will be updated as sections are added or improved.
+
+-   Version 1: \[19/12/22\] First version of the bulk RNA seq data - Differential expression analysis included, sections including clinical data to be added.
+-   Version 2: \[21/12/22\] Added single cell exploration information
+:::
+
+::: callout-note
+Please let me know if any of the visualizations or links seem to be erratic. We recently changed reporting tool and small issues might still be present.
+
+You can leave comments on this report by opening the sidebar on the very right of this page. After signing up for Hypothes.is via the link at the top of the sidebar, commenting is quick and easy. Just highlight the section you want to remark upon and write your comment. Leave it in the public group ("Post to Public") and I will be able to see it and update the text if necessary. \[only for online link to report.\]
+:::
+
+# Introduction
+
+# Material and Methods
+
+# Results
+
+# Data Responsibility
+
+-   **NBIS & Uppnex** Unfortunately, we do not have resources to keep any files associated with the support request. We suggest that you safely store the results delivered by us. In addition, we ask that you remove the files from UPPMAX/UPPNEX after analysis is completed. The main storage at UPPNEX is optimized for high-speed and parallel access, which makes it expensive and not the right place for long time archiving.
+-   **Sensitive data** Please note that special considerations may apply to the human-derived sensitive personal data. These should be handled according to specific laws and regulations.
+-   **Long-term backup** The responsibility for data archiving lies with universities and we recommend asking your local IT for support with long-term data archiving. Also the newly established Data Office at SciLifeLab may be of help to discuss other options.
+
+# Acknowledgements
+
+If you are presenting the results in a paper, at a workshop or conference, we kindly ask you to acknowledge us.
+
+-   **NBIS Staff** are encouraged to be co-authors when this is merited in accordance to the ethical recommendations for authorship, e.g. [ICMJE recommendations](http://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html). If applicable, please include **Vincent van Hoef, National Bioinformatics Infrastructure Sweden, Science for Life Laboratory, Uppsala University**, as co-author. In other cases, NBIS would be grateful if support by us is acknowledged in publications according to this example: ["Support by NBIS (National Bioinformatics Infrastructure Sweden) is gratefully acknowledged"](https://www.nbis.se/resources/support.html).
+
+-   **UPPMAX** If your project has used HPC resources we kindly asks you to acknowledge UPPMAX and SNIC. If applicable, please add: ["The computations were performed on resources provided by SNIC through Uppsala Multidisciplinary Center for Advanced Computational Science (UPPMAX) under Project SNIC XXXX/Y-ZZZ"](https://www.uppmax.uu.se/support/faq/general-miscellaneous-faq/acknowledging-uppmax--snic--and-uppnex/).
+
+-   **NGI** In publications based on data from NGI Sweden, the authors must acknowledge SciLifeLab, NGI and UPPMAX: ["The authors would like to acknowledge support from Science for Life Laboratory, the National Genomics Infrastructure, NGI, and Uppmax for providing assistance in massive parallel sequencing and computational infrastructure"](https://ngisweden.scilifelab.se/info/faq#how-do-i-acknowledge-ngi-in-my-publication).
+
+# Closing Procedures
+
+You should soon be contacted by one of our managers, [Jessica Lindvall](jessica.lindvall@nbis.se) or [Henrik Lantz](henrik.lantz@nbis.se), with a request to close down the project in our internal system and for invoicing matters. If we do not hear from you within **30 days** the project will be automatically closed and invoice sent. Again, we would like to remind you about data responsibility and acknowledgements, see Data Responsibility and Acknowledgments sections.
+
+You are naturally more than welcome to come back to us with further data analysis request at any time via [NBIS support](http://nbis.se/support/support.html).
+
+Thank you for using NBIS and all the best for future research.
