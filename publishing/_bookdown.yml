@@ -1,8 +1,0 @@
-output_dir: "report"
-delete_merged_file: true
-rmd_files:
-- index.Rmd
-- data_responsibility.Rmd
-- acknowledgements.Rmd
-- closing.Rmd
-new_session: no
